@@ -18,4 +18,4 @@ npm run build
 npm run build --report
 ```
 
-checkout the [demo](https://snowy-dong.github.io/vue/index)
+checkout the [demo](https://snowy-dong.github.io/vue/dist/)
