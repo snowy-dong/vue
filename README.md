@@ -1,4 +1,4 @@
-# vue
+# vue-test
 
 > A Vue.js project
 
@@ -18,4 +18,4 @@ npm run build
 npm run build --report
 ```
 
- checkout the [demo](https://snowy-dong.github.io/vue/index.html#/) 
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
