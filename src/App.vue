@@ -12,9 +12,7 @@
          <router-link to="/seller">商家</router-link>
       </div>
     </div>
-    <div class='content'>
-      content
-    </div>
+    
     <router-view></router-view>
   </div>
 </template>
@@ -38,6 +36,13 @@ export default {
     .tab-item
       flex:1
       text-align:center
+      a
+        display:block
+        text-decoration:none
+        &.router-link-active
+          color:#c40000
+
+
 
 
 </style>

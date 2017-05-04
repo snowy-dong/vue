@@ -1,6 +1,5 @@
 <template>
   <div class="header">
-    <img :src="msg"/>
     <h1>I am header</h1>
   </div>
 </template>
@@ -10,7 +9,6 @@ export default {
   name: 'header',
    data() {
     return {
-      msg: require('../../resource/img/brand@2x.png')
     }
   }
 }

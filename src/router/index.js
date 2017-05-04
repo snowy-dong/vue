@@ -1,28 +1,20 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import Hello from '@/components/header'
-import goods from '@/components/goods/goods'
-import ratings from '@/components/ratings/ratings'
-import seller from '@/components/seller/seller'
-Vue.use(Router)
-export default new Router({
+Vue.use(VueRouter)
+const router = new VueRouter({
   routes: [
     {
-      path: '/',
-      name: 'goods',
-      component: goods
-    }, {
       path: '/goods',
-      name: 'goods',
-      component: goods
+      component: resolve => require(['@/components/goods/goods'], resolve)
     }, {
       path: '/ratings',
-      name: 'ratings',
-      component: ratings
+      component: resolve => require(['@/components/ratings/ratings'], resolve)
     }, {
       path: '/seller',
-      name: 'seller',
-      component: seller
+      component: resolve => require(['@/components/seller/seller'], resolve)
     }
   ]
 })
+router.push('/goods')
+export default router
