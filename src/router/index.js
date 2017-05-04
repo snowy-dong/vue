@@ -6,6 +6,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/goods',
+      name:'goods',
       component: resolve => require(['@/components/goods/goods'], resolve)
     }, {
       path: '/ratings',
@@ -16,5 +17,4 @@ const router = new VueRouter({
     }
   ]
 })
-router.push('/goods')
 export default router
