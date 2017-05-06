@@ -20,9 +20,10 @@
 <script>
 import Vue from 'vue'
 import Header from '@/components/header'
-import vueRecource from 'vue-resource'
+import axios from 'axios'
+let seller = require('api/seller.json')
+Vue.prototype.$http=axios
 const ERR_OK =0;
-Vue.use(vueRecource)
 export default {
   name: 'app',
   data() {
@@ -31,12 +32,8 @@ export default {
     }
   },
   created () {
-    this.$http.get("/api/seller").then(res=>{
-      res=res.body
-      if(res.errno===ERR_OK){
-        this.seller =res.data
-        console.log(this.seller)
-      }
+    this.$http.post('/api/posts').then(res=>{
+      console.log(res);
 
     },err=>{
 
