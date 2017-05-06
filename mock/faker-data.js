@@ -23,6 +23,17 @@ module.exports = function () {
              food: faker.image.food(),
              imageUrl: faker.image.imageUrl()
          }
+     }),
+     seller:_.times(1,function (n) {
+         return {
+             id: n,
+             name:faker.name.findName(),
+             description: faker.lorem.paragraph,
+             avatar: faker.internet.avatar(),
+             deliveryTime:faker.date.recent(),
+             supports:faker.lorem.paragraph
+
+         }
      })
  }
 }

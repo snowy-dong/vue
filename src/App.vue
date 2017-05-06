@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab">
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
@@ -12,18 +12,15 @@
          <router-link to="/seller">商家</router-link>
       </div>
     </div>
-
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import Header from '@/components/header'
+import Header from '@/components/header/header'
 import axios from 'axios'
-let seller = require('api/seller.json')
 Vue.prototype.$http=axios
-const ERR_OK =0;
 export default {
   name: 'app',
   data() {
@@ -32,9 +29,9 @@ export default {
     }
   },
   created () {
-    this.$http.post('/api/posts').then(res=>{
-      console.log(res);
-
+    this.$http.get("/api/seller").then(res=>{
+      console.log(res)
+      this.seller=res.data;
     },err=>{
 
     })
