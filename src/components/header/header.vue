@@ -4,13 +4,13 @@
     <div class='content-wrapper'>
       <!--头像-->
       <div class='avatar'>
-          <img width='64' height='64' :src='seller.avatar'  />
+        <img width='64' height='64' :src='seller.avatar' />
       </div>
       <!--主体内容-->
       <div class='content'>
         <div class='title'>
-            <span class='brand'></span>
-            <span class='name'>{{seller.name}}</span>
+          <span class='brand'></span>
+          <span class='name'>{{seller.name}}</span>
         </div>
         <!--描述-->
         <div class='description'>
@@ -40,25 +40,24 @@
 </template>
 
 <script>
-export default {
-  name: 'header',
-  props:{
-    seller:{
-      type:Object
-    }
-  },
-  created () {
-    this.classMap=['decrease','discount','special','invoice','guarantee']
-  },
-   data() {
-    return {
+  export default {
+    name: 'header',
+    props: {
+      seller: {
+        type: Object
+      }
+    },
+    created() {
+      this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
+    },
+    data() {
+      return {}
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style  lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 @import "../../common/stylus/mixin.styl"
   .header
     position: relative
