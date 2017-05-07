@@ -62,5 +62,6 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/mixin.styl";
-  @import "./header.styl"
+  @import "./header.styl";
+
 </style>

@@ -4,16 +4,18 @@
   </div>
 </template>
 <script>
-export default {
-  name: 'sidebar',
-  data() {
-    return {
-      msg: 'sidebar'
+  export default {
+    name: 'sidebar',
+    data() {
+      return {
+        msg: 'sidebar'
+      }
     }
   }
-}
+
 </script>
 
 <style scoped>
+
 
 </style>
