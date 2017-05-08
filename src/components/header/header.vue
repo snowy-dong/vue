@@ -55,12 +55,10 @@
       return {}
     }
   }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/mixin.styl";
   @import "./stylus/header.styl";
-
 </style>
