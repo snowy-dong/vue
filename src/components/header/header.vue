@@ -1,21 +1,21 @@
 <template>
   <div class="header">
     <!--内容相关-->
-    <div class='content-wrapper'>
-      <div class='avatar'>
+    <div class="content-wrapper">
+      <div class="avatar">
         <!--头像-->
-          <img width='64' height='64' :src='seller.avatar'  />
+        <img width='64' height='64' :src='seller.avatar' />
       </div>
-      <div class='content'>
-        <div class='title'>
-            <span class='brand'></span>
-            <span class='name'>{{seller.name}}</span>
+      <div class="content">
+        <div class="title">
+          <span class="brand"></span>
+          <span class="name">{{seller.name}}</span>
         </div>
-        <div class='description'>
+        <div class="description">
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
         </div>
         <div v-if='seller.supports' class="support">
-          <span class="icon" :class='classMap[seller.supports[0].type]'></span>
+          <span class="icon" :class="classMap[seller.supports[0].type]"></span>
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
@@ -24,32 +24,31 @@
       </div>
     </div>
     <!--公告相关-->
-    <div class='bulletin-wrapper'>
+    <div class="bulletin-wrapper">
 
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'header',
-  props:{
-    seller:{
-      type:Object
-    }
-  },
-  created () {
-    this.classMap=['decrease','discount','special','invoice','guarantee']
-  },
-   data() {
-    return {
+  export default {
+    name: 'header',
+    props: {
+      seller: {
+        type: Object
+      }
+    },
+    created() {
+      this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
+    },
+    data() {
+      return {}
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style  lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 @import "../../common/stylus/mixin.styl"
   .header
     color:#fff
@@ -120,17 +119,6 @@ export default {
         text-align:center
         .count
           font-size:10px
-
-
-
-
-
-
-
-
-
-
-
 
 
 </style>

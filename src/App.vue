@@ -9,7 +9,7 @@
         <router-link to="/ratings">评论</router-link>
       </div>
       <div class="tab-item">
-         <router-link to="/seller">商家</router-link>
+        <router-link to="/seller">商家</router-link>
       </div>
     </div>
     <router-view></router-view>
@@ -17,29 +17,29 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import Header from '@/components/header/header'
-import axios from 'axios'
-Vue.prototype.$http=axios
-export default {
-  name: 'app',
-  data() {
-    return  {
-      seller:{}
-    }
-  },
-  created () {
-    this.$http.get("/api/seller").then(res=>{
-      console.log(res)
-      this.seller=res.data;
-    },err=>{
+  import Vue from 'vue'
+  import Header from '@/components/header/header'
+  import axios from 'axios'
+  Vue.prototype.$http = axios
+  export default {
+    name: 'app',
+    data() {
+      return {
+        seller: {}
+      }
+    },
+    created() {
+      this.$http.get("/api/seller").then(res => {
+        console.log(res)
+        this.seller = res.data;
+      }, err => {
 
-    })
-  },
-  components:{
-    'v-header':Header
+      })
+    },
+    components: {
+      'v-header': Header
+    }
   }
-}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scope>
