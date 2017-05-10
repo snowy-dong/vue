@@ -4,7 +4,7 @@
 			<ul>
 				<li v-for="item in goods" class="menu-item">
 					<span class="text border-1px">
-																													<span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span> {{item.name}}
+						<span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span> {{item.name}}
 					</span>
 				</li>
 			</ul>
@@ -26,7 +26,8 @@
 									<span>好评率{{food.rating}}</span>
 								</div>
 								<div class="price">
-									<span class="now">￥{{food.price}}</span><span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
+									<span class="now">￥{{food.price}}</span>
+									<span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
 								</div>
 							</div>
 						</li>
@@ -38,71 +39,71 @@
 </template>
 
 <script>
-	import BScroll from "better-scroll"
-	export default {
-		name: 'goods',
-		props: {
-			seller: {
-				type: Object
-			}
-		},
-		data() {
-			return {
-				goods: [],
-				listHeight: [],
-				scrollY: 0
-			}
-		},
-		created() {
-			this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
-			this.$http.get("/api/goods").then(res => {
-				this.goods = res.data;
-				console.log(this.goods)
-				this.$nextTick(() => {
-					this._initScroll()
-					this._calculatHeight()
-				})
+import BScroll from "better-scroll"
+export default {
+	name: 'goods',
+	props: {
+		seller: {
+			type: Object
+		}
+	},
+	data() {
+		return {
+			goods: [],
+			listHeight: [],
+			scrollY: 0
+		}
+	},
+	created() {
+		this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
+		this.$http.get("/api/goods").then(res => {
+			this.goods = res.data;
+			console.log(this.goods)
+			this.$nextTick(() => {
+				this._initScroll()
+				this._calculatHeight()
+			})
 
-			}, err => {
+		}, err => {
 
+		})
+	},
+	methods: {
+		_initScroll() {
+			this.meunScroll = new BScroll(this.$refs.menuWrapper, {
+				click: true
+			});
+			this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
+				click: true,
+				probeType: 3
+			});
+			this.foodsScroll.on("scroll", (pos) => {
+				this.scrollY = Math.abs(Math.round(pos.y))
 			})
 		},
-		methods: {
-			_initScroll() {
-				this.meunScroll = new BScroll(this.$refs.menuWrapper, {
-					click: true
-				});
-				this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
-					click: true,
-					probeType: 3
-				});
-				this.foodsScroll.on("scroll", (pos) => {
-					this.scrollY = Math.abs(Math.round(pos.y))
-				})
-			},
-			_calculatHeight() {
-				let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');
-				let height = 0;
+		_calculatHeight() {
+			let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');
+			let height = 0;
+			this.listHeight.push(height);
+			for (let i = 0; i < foodList.lenght; i++) {
+				let item = foodList[i];
+				height += item.clientHeight;
 				this.listHeight.push(height);
-				for (let i = 0; i < foodList.lenght; i++) {
-					let item = foodList[i];
-					height += item.clientHeight;
-					this.listHeight.push(height);
-				}
 			}
-		},
-		computed: {
-			currentIndex() {
-				for (let i = 0; i < this.listHeight.length; i++) {
-					let height1 = this.listHeight[i];
-					let height2 = this.listHeight[i + 1];
-					if (!height2 || (this.scrollY > height1 && this.scrollY < height2)) {
-						return i
-					}
+		}
+	},
+	computed: {
+		currentIndex() {
+			for (let i = 0; i < this.listHeight.length; i++) {
+				let height1 = this.listHeight[i];
+				let height2 = this.listHeight[i + 1];
+				if (!height2 || (this.scrollY > height1 && this.scrollY < height2)) {
+					return i
 				}
 			}
 		}
 	}
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
