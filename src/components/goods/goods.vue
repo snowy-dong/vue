@@ -4,7 +4,7 @@
 			<ul>
 				<li v-for="item in goods" class="menu-item">
 					<span class="text border-1px">
-																										<span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span> {{item.name}}
+																													<span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span> {{item.name}}
 					</span>
 				</li>
 			</ul>
