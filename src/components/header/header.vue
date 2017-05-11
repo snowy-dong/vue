@@ -41,20 +41,20 @@
 </template>
 
 <script>
-	export default {
-		name: 'header',
-		props: {
-			seller: {
-				type: Object
-			}
-		},
-		created() {
-			this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
-		},
-		data() {
-			return {}
+export default {
+	name: 'header',
+	props: {
+		seller: {
+			type: Object
 		}
+	},
+	created() {
+		this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
+	},
+	data() {
+		return {}
 	}
+}
 </script>
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->

@@ -2,7 +2,7 @@
 	<div class="goods">
 		<div class="menu-wrapper" ref="menuWrapper">
 			<ul>
-				<li v-for="item in goods" class="menu-item">
+				<li v-for="(item, index) in goods" class="menu-item" :class="{'current':currentIndex===index}" @click="selectMenu(index,$event)">
 					<span class="text border-1px">
 						<span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span> {{item.name}}
 					</span>
@@ -35,11 +35,13 @@
 				</li>
 			</ul>
 		</div>
+		<shopCart></shopCart>
 	</div>
 </template>
 
 <script>
-import BScroll from "better-scroll"
+import BScroll from "better-scroll";
+import ShopCart from 'components/shopCart/shopCart.vue'
 export default {
 	name: 'goods',
 	props: {
@@ -83,13 +85,23 @@ export default {
 		},
 		_calculatHeight() {
 			let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');
+
 			let height = 0;
 			this.listHeight.push(height);
-			for (let i = 0; i < foodList.lenght; i++) {
+			for (let i = 0; i < foodList.length; i++) {
 				let item = foodList[i];
 				height += item.clientHeight;
 				this.listHeight.push(height);
 			}
+		},
+		selectMenu(index, event) {
+			if (!event._constructed) {
+				return
+			}
+			let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');
+			let el = foodList[index];
+			this.foodsScroll.scrollToElement(el, 300);
+			console.log(index)
 		}
 	},
 	computed: {
@@ -97,11 +109,15 @@ export default {
 			for (let i = 0; i < this.listHeight.length; i++) {
 				let height1 = this.listHeight[i];
 				let height2 = this.listHeight[i + 1];
-				if (!height2 || (this.scrollY > height1 && this.scrollY < height2)) {
+				if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
 					return i
 				}
 			}
+			return 0
 		}
+	},
+	components: {
+		ShopCart
 	}
 }
 </script>
@@ -109,5 +125,5 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 @import "../../common/stylus/mixin.styl";
-  @import "./stylus/goods.styl";
+@import "./stylus/goods.styl";
 </style>
