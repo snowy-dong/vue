@@ -1,0 +1,38 @@
+.shopcart {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 50;
+	width: 100%;
+	height: 48px;
+
+	.content {
+		display: flex;
+		background: #141d27;
+
+		.content-left {
+			flex: 1;
+
+			.logo-wrapper {
+				display: inline-block;
+				position: relative;
+				top: -10px;
+				margin: 0 12px;
+				padding: 6px;
+				width: 56px;
+				height: 56px;
+				box-sizing: border-box;
+				vertical-align: top;
+				border-radius: 50px;
+
+				.price {
+					display: inline-block;
+				}
+
+				.desc {
+					display: inline-block;
+				}
+			}
+		}
+	}
+}

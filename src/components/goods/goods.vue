@@ -1,3 +1,9 @@
+/*
+ * @Author: snowy
+ * @Date: 2017-05-11 18:00:10
+ * @Last Modified by:   snowy
+ * @Last Modified time: 2017-05-11 18:00:10
+ */
 <template>
 	<div class="goods">
 		<div class="menu-wrapper" ref="menuWrapper">

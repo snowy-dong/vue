@@ -1,3 +1,9 @@
+/*
+ * @Author: snowy
+ * @Date: 2017-05-11 18:01:04
+ * @Last Modified by:   snowy
+ * @Last Modified time: 2017-05-11 18:01:04
+ */
 <template>
 	<div class="ratings">
 		<h1>ratings</h1>

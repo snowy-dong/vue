@@ -1,3 +1,9 @@
+/*
+ * @Author: snowy
+ * @Date: 2017-05-11 18:00:50
+ * @Last Modified by:   snowy
+ * @Last Modified time: 2017-05-11 18:00:50
+ */
 <template>
 	<div class='header'>
 		<!--内容相关-->

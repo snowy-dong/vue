@@ -1,3 +1,9 @@
+/*
+ * @Author: snowy
+ * @Date: 2017-05-11 18:01:09
+ * @Last Modified by:   snowy
+ * @Last Modified time: 2017-05-11 18:01:09
+ */
 <template>
 	<div class="seller">
 		<h1>seller</h1>
